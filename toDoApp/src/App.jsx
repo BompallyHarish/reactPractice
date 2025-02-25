@@ -1,5 +1,6 @@
 import AppName from "./components/AppName"
 import AddToDoItem from "./components/AddToDoItem"
+import ItemsList from "./components/itemsList"
 import "./App.css"
 
 function App() {
@@ -11,8 +12,8 @@ function App() {
 
     <AddToDoItem></AddToDoItem>
 
-
-    <div class="container items-container">
+    <ItemsList></ItemsList>
+    {/* <div class="container items-container">
 
       <div class="row kg-row">
         <div class="col-6 ">
@@ -44,7 +45,7 @@ function App() {
 
       </div>
 
-    </div>
+    </div> */}
 
   </center>
 }
