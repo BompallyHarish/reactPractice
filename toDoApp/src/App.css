@@ -1,0 +1,24 @@
+h1 {
+  font-weight: 700;
+  font-size: 45px;
+  margin: 10px;
+  margin-bottom: 50px;
+}
+
+input {
+  width: 100%
+}
+
+.items-container {
+  text-align: left;
+
+}
+
+.kg-row {
+  margin: 10px;
+}
+
+.kg-button {
+  margin: 10px;
+  width: 80px
+}
