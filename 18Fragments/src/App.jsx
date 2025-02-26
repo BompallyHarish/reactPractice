@@ -16,8 +16,10 @@ function App() {
   //   return <h1>Healthy Items not available</h1>
 
   // }
+  let inputValue = "Default input value"
   const handleInputChange = (event) => {
     console.log(event.target.value)
+    inputValue = event.target.value
   }
 
   return <>
@@ -28,6 +30,7 @@ function App() {
     </Container>
     <Container>
       <FoodInput handleInputChange={handleInputChange}></FoodInput>
+      <p>{inputValue}</p>
       <ul class="list-group">
         {healthyItems.map((item, index) => (
           <FoodItems item={item} key={index}></FoodItems>
