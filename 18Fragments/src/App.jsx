@@ -4,6 +4,7 @@ import React from 'react'
 import Header from './components/Header'
 import FoodItems from './components/FoodItems'
 import Container from './components/container/Container'
+import FoodInput from './components/foodInput/FoodInput'
 
 
 let healthyItems = ['Amla', 'Apple', 'carrot', 'beetroot']
@@ -23,7 +24,7 @@ function App() {
 
     </Container>
     <Container>
-
+      <FoodInput></FoodInput>
       <ul class="list-group">
         {healthyItems.map((item, index) => (
           <FoodItems item={item} key={index}></FoodItems>
