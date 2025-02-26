@@ -5,9 +5,11 @@ import React from 'react'
 function App() {
 
 
-  return <React.Fragment>
+  return <>
     <h1>Healthy Food</h1>
-  </React.Fragment>
+  </>
+
+
 
 }
 
