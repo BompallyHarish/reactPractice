@@ -16,6 +16,9 @@ function App() {
   //   return <h1>Healthy Items not available</h1>
 
   // }
+  const handleInputChange = (event) => {
+    console.log(event.target.value)
+  }
 
   return <>
     <Container>
@@ -24,7 +27,7 @@ function App() {
 
     </Container>
     <Container>
-      <FoodInput></FoodInput>
+      <FoodInput handleInputChange={handleInputChange}></FoodInput>
       <ul class="list-group">
         {healthyItems.map((item, index) => (
           <FoodItems item={item} key={index}></FoodItems>

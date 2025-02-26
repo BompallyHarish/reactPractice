@@ -1,9 +1,7 @@
 import styles from "./FoodInput.module.css"
 
-const FoodInput = () => {
-    const handleInputChange = (event) => {
-        console.log(event.target.value)
-    }
+const FoodInput = ({ handleInputChange }) => {
+
     return <>
         <input className={styles.foodInput}
             placeholder="Enter healthy item"
