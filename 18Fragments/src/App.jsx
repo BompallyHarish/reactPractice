@@ -13,7 +13,8 @@ function App() {
   // }
 
   return <>
-    {healthyItems.length == 0 ? <h1>Healthy Items not available</h1> : <h1>Healthy Food</h1>}
+    <h1>Healthy Food</h1>
+    {healthyItems.length == 0 && <h1>Healthy Items not available</h1>}
 
     <ul class="list-group">
       {healthyItems.map((item, index) => (
