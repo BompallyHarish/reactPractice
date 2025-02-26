@@ -1,6 +1,9 @@
 
 import './App.css'
 import React from 'react'
+import Header from './components/Header'
+import FoodItems from './components/FoodItems'
+
 
 let healthyItems = ['Amla', 'Apple', 'carrot', 'beetroot']
 // healthyItems = []
@@ -13,17 +16,14 @@ function App() {
   // }
 
   return <>
-    <h1>Healthy Food</h1>
-    {healthyItems.length == 0 && <h1>Healthy Items not available</h1>}
+    <Header items={healthyItems}></Header>
 
     <ul class="list-group">
       {healthyItems.map((item, index) => (
-        <li class="list-group-item" key={index}>{item}</li>
+        <FoodItems item={item} key={index}></FoodItems>
       ))}
     </ul>
   </>
-
-
 
 }
 
