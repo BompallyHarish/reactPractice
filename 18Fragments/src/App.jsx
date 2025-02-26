@@ -3,6 +3,7 @@ import './App.css'
 import React from 'react'
 import Header from './components/Header'
 import FoodItems from './components/FoodItems'
+import Container from './components/container/Container'
 
 
 let healthyItems = ['Amla', 'Apple', 'carrot', 'beetroot']
@@ -16,14 +17,23 @@ function App() {
   // }
 
   return <>
-    <Header items={healthyItems}></Header>
+    <Container>
+      <Header items={healthyItems}></Header>
 
-    <ul class="list-group">
-      {healthyItems.map((item, index) => (
-        <FoodItems item={item} key={index}></FoodItems>
-      ))}
-    </ul>
+    </Container>
+    <Container>
+
+      <ul class="list-group">
+        {healthyItems.map((item, index) => (
+          <FoodItems item={item} key={index}></FoodItems>
+        ))}
+      </ul>
+    </Container>
+    <Container>
+      <p>This is footer message for healthy foods</p>
+    </Container>
   </>
+
 
 }
 
