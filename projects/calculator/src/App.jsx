@@ -7,10 +7,15 @@ import Buttons from './components/buttons/Buttons'
 
 function App() {
 
-  return <div className='calculator'>
-    <Display></Display>
-    <Buttons></Buttons>
-  </div>
+  return <>
+    <div>
+      <h1>Calculator App</h1>
+    </div>
+    <div className='calculator'>
+      <Display></Display>
+      <Buttons></Buttons>
+    </div>
+  </>
 }
 
 export default App
