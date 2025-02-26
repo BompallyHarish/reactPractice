@@ -7,13 +7,14 @@ let healthyItems = ['Amla', 'Apple', 'carrot', 'beetroot']
 
 function App() {
 
-  if (healthyItems.length == 0) {
-    return <h1>Healthy Items not available</h1>
+  // if (healthyItems.length == 0) {
+  //   return <h1>Healthy Items not available</h1>
 
-  }
+  // }
 
   return <>
-    <h1>Healthy Food</h1>
+    {healthyItems.length == 0 ? <h1>Healthy Items not available</h1> : <h1>Healthy Food</h1>}
+
     <ul class="list-group">
       {healthyItems.map((item, index) => (
         <li class="list-group-item" key={index}>{item}</li>
