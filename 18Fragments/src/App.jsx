@@ -24,7 +24,7 @@ function App() {
   //   setInputValue(event.target.value)
   // }
 
-  let [healthyItems, setHealthyItems] = useState(['Amla', 'Apple', 'carrot', 'beetroot'])
+  let [healthyItems, setHealthyItems] = useState(['Amla', 'Apple', 'Carrot', 'Beetroot'])
 
   const handleOnKeydown = (event) => {
     if (event.key === 'Enter' && event.target.value != "") {
@@ -32,6 +32,13 @@ function App() {
       event.target.value = ""
       setHealthyItems(newItems)
     }
+  }
+
+  let [activeItems, setActiveItems] = useState([])
+
+  const handleBuyButton = (event, item) => {
+    let newActiveItems = [...activeItems, item]
+    setActiveItems(newActiveItems)
   }
 
   return <>
@@ -49,7 +56,12 @@ function App() {
 
       <ul className="list-group">
         {healthyItems.map((item, index) => (
-          <FoodItems item={item} key={index}></FoodItems>
+          <FoodItems
+            item={item}
+            key={index}
+            bought={activeItems.includes(item)}
+            handleBuyButton={(event) => handleBuyButton(event, item)}
+          ></FoodItems>
         ))}
       </ul>
 
