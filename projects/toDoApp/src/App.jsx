@@ -6,41 +6,41 @@ import "./App.css"
 function App() {
 
 
-  return <center class="todo-container">
+  return <center className="todo-container">
 
     <AppName></AppName>
 
     <AddToDoItem></AddToDoItem>
 
     <ItemsList></ItemsList>
-    {/* <div class="container items-container">
+    {/* <div className="container items-container">
 
-      <div class="row kg-row">
-        <div class="col-6 ">
+      <div className="row kg-row">
+        <div className="col-6 ">
           Trim the beard
         </div>
 
-        <div class="col-4">
+        <div className="col-4">
           25/02/2025
         </div>
 
-        <div class="col-2 ">
-          <button type="button" class="btn btn-danger kg-button">Delete</button>
+        <div className="col-2 ">
+          <button type="button" className="btn btn-danger kg-button">Delete</button>
         </div>
 
       </div>
 
-      <div class="row kg-row">
-        <div class="col-6">
+      <div className="row kg-row">
+        <div className="col-6">
           Take shower
         </div>
 
-        <div class="col-4">
+        <div className="col-4">
           25/02/2025
         </div>
 
-        <div class="col-2">
-          <button type="button" class="btn btn-danger kg-button">Delete</button>
+        <div className="col-2">
+          <button type="button" className="btn btn-danger kg-button">Delete</button>
         </div>
 
       </div>
