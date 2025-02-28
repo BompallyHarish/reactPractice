@@ -36,7 +36,7 @@ function App() {
 
   let [activeItems, setActiveItems] = useState([])
 
-  const handleBuyButton = (event, item) => {
+  const handleBuyButton = (item) => {
     let newActiveItems = [...activeItems, item]
     setActiveItems(newActiveItems)
   }
@@ -60,7 +60,7 @@ function App() {
             item={item}
             key={index}
             bought={activeItems.includes(item)}
-            handleBuyButton={(event) => handleBuyButton(event, item)}
+            handleBuyButton={() => handleBuyButton(item)}
           ></FoodItems>
         ))}
       </ul>
