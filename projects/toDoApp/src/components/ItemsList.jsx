@@ -1,3 +1,5 @@
+import { MdDelete } from "react-icons/md";
+
 
 function ItemsList({ toDoItems, onDeleteItem }) {
 
@@ -15,7 +17,8 @@ function ItemsList({ toDoItems, onDeleteItem }) {
                         </div>
 
                         <div className="col-2 ">
-                            <button type="button" className="btn btn-danger kg-button" onClick={() => onDeleteItem(item.toDo)}>Delete</button>
+                            <button type="button" className="btn btn-danger kg-button" onClick={() => onDeleteItem(item.toDo)}><MdDelete />
+                            </button>
                         </div>
 
                     </div>
