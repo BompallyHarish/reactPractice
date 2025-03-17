@@ -1,31 +1,21 @@
 
-let itemsData = [
-    {
-        todo: "Trim the beard",
-        dueDate: "25/02/2025"
-    },
-    {
-        todo: "Take shower",
-        dueDate: "25/02/2025"
-    }
-]
-function ItemsList() {
+function ItemsList({ toDoItems, onDeleteItem }) {
 
     return (
         <div className="container items-container">
             <ul>
-                {itemsData.map((item, index) => (
+                {toDoItems.map((item, index) => (
                     <div className="row kg-row">
-                        <div className="col-6 ">
-                            {item.todo}
+                        <div className="col-6 " key={item.toDo}>
+                            {item.toDo}
                         </div>
 
-                        <div className="col-4">
+                        <div className="col-4" key={item.dueDate}>
                             {item.dueDate}
                         </div>
 
                         <div className="col-2 ">
-                            <button type="button" className="btn btn-danger kg-button">Delete</button>
+                            <button type="button" className="btn btn-danger kg-button" onClick={() => onDeleteItem(item.toDo)}>Delete</button>
                         </div>
 
                     </div>
