@@ -19,8 +19,9 @@ function App() {
 
   const addItem = (item, dueDate) => {
     if (item != "" && dueDate != "") {
-      const newToDoItems = [...toDoItems, { toDo: item, dueDate }]
-      setToDoItems(newToDoItems)
+      // const newToDoItems = [...toDoItems, { toDo: item, dueDate }]
+      // setToDoItems(newToDoItems)
+      setToDoItems((currValue) => [...currValue, { toDo: item, dueDate }])
     }
   }
 

@@ -1,37 +1,42 @@
-import { useState } from "react"
+import { useState, useRef } from "react"
 import { IoIosAddCircle, IoMdAddCircle } from "react-icons/io";
 
 
 function AddToDoItem({ onAddItem }) {
-    const [toDoItem, setToDoItem] = useState("")
-    const [dueDate, setDueDate] = useState("")
+    // const [toDoItem, setToDoItem] = useState("")
+    // const [dueDate, setDueDate] = useState("")
+    const toDoItem = useRef()
+    const dueDate = useRef()
 
-    const onChangeItem = (event) => {
-        console.log(event.target.value)
-        setToDoItem(event.target.value)
-    }
+    // const onChangeItem = (event) => {
+    //     console.log(event.target.value)
+    //     setToDoItem(event.target.value)
+    // }
 
-    const onChangeDate = (event) => {
-        console.log(event.target.value)
-        setDueDate(event.target.value)
-    }
+    // const onChangeDate = (event) => {
+    //     console.log(event.target.value)
+    //     setDueDate(event.target.value)
+    // }
 
     const addItemButton = (event) => {
         event.preventDefault()
-        onAddItem(toDoItem, dueDate)
-        setDueDate("")
-        setToDoItem("")
+
+        onAddItem(toDoItem.current.value, dueDate.current.value)
+        toDoItem.current.value = ""
+        dueDate.current.value = ""
+        // setDueDate("")
+        // setToDoItem("")
 
     }
 
     return <div className="container items-container">
         <form className="row kg-row" onSubmit={addItemButton}>
             <div className="col-6">
-                <input type="text" placeholder="Enter ToDo Here" value={toDoItem} onChange={onChangeItem} ></input>
+                <input type="text" placeholder="Enter ToDo Here" ref={toDoItem}  ></input>
             </div>
 
             <div className="col-4">
-                <input type="date" placeholder="mm/dd/yyyy" value={dueDate} onChange={onChangeDate}></input>
+                <input type="date" placeholder="mm/dd/yyyy" ref={dueDate} ></input>
             </div>
 
             <div className="col-2">
