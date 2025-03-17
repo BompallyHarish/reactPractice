@@ -16,7 +16,8 @@ function AddToDoItem({ onAddItem }) {
         setDueDate(event.target.value)
     }
 
-    const addItemButton = () => {
+    const addItemButton = (event) => {
+        event.preventDefault()
         onAddItem(toDoItem, dueDate)
         setDueDate("")
         setToDoItem("")
@@ -24,7 +25,7 @@ function AddToDoItem({ onAddItem }) {
     }
 
     return <div className="container items-container">
-        <div className="row kg-row">
+        <form className="row kg-row" onSubmit={addItemButton}>
             <div className="col-6">
                 <input type="text" placeholder="Enter ToDo Here" value={toDoItem} onChange={onChangeItem} ></input>
             </div>
@@ -34,10 +35,10 @@ function AddToDoItem({ onAddItem }) {
             </div>
 
             <div className="col-2">
-                <button type="button" className="btn btn-success kg-button" onClick={addItemButton}><IoMdAddCircle /></button>
+                <button className="btn btn-success kg-button" ><IoMdAddCircle /></button>
             </div>
 
-        </div>
+        </form>
     </div>
 
 }

@@ -8,11 +8,11 @@ function App() {
   const [toDoItems, setToDoItems] = useState([
     {
       toDo: "Trim the beard",
-      dueDate: "25/02/2025"
+      dueDate: "25-02-2025"
     },
     {
       toDo: "Take shower",
-      dueDate: "25/02/2025"
+      dueDate: "25-02-2025"
     }
   ])
 
