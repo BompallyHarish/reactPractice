@@ -1,10 +1,13 @@
-import { useState, useRef } from "react"
+import { useState, useRef, useContext } from "react"
 import { IoIosAddCircle, IoMdAddCircle } from "react-icons/io";
+import { ToDoItemsContext } from "../stores/ToDoItemsStore";
 
 
-function AddToDoItem({ onAddItem }) {
+function AddToDoItem() {
+
     // const [toDoItem, setToDoItem] = useState("")
     // const [dueDate, setDueDate] = useState("")
+    const { addItem } = useContext(ToDoItemsContext)
     const toDoItem = useRef()
     const dueDate = useRef()
 
@@ -21,7 +24,7 @@ function AddToDoItem({ onAddItem }) {
     const addItemButton = (event) => {
         event.preventDefault()
 
-        onAddItem(toDoItem.current.value, dueDate.current.value)
+        addItem(toDoItem.current.value, dueDate.current.value)
         toDoItem.current.value = ""
         dueDate.current.value = ""
         // setDueDate("")

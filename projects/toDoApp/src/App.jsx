@@ -3,18 +3,20 @@ import AddToDoItem from "./components/AddToDoItem"
 import ItemsList from "./components/itemsList"
 import "./App.css"
 import { useState } from "react"
+import { ToDoItemsContext } from "./stores/ToDoItemsStore"
 
 function App() {
-  const [toDoItems, setToDoItems] = useState([
+  const defaultItems = [
     {
-      toDo: "Trim the beard",
-      dueDate: "25-02-2025"
+      toDo: "Buy Fruits",
+      dueDate: "18-03-2025"
     },
     {
       toDo: "Take shower",
-      dueDate: "25-02-2025"
+      dueDate: "18-03-2025"
     }
-  ])
+  ]
+  const [toDoItems, setToDoItems] = useState(defaultItems)
 
 
   const addItem = (item, dueDate) => {
@@ -32,14 +34,16 @@ function App() {
 
 
 
-  return <center className="todo-container">
+  return (
+    <ToDoItemsContext.Provider value={{ toDoItems, addItem, deleteItem }} >
+      <center className="todo-container">
 
-    <AppName></AppName>
+        <AppName></AppName>
 
-    <AddToDoItem onAddItem={addItem}  ></AddToDoItem>
+        <AddToDoItem  ></AddToDoItem>
 
-    <ItemsList toDoItems={toDoItems} onDeleteItem={deleteItem}></ItemsList>
-    {/* <div className="container items-container">
+        <ItemsList ></ItemsList>
+        {/* <div className="container items-container">
 
       <div className="row kg-row">
         <div className="col-6 ">
@@ -73,7 +77,9 @@ function App() {
 
     </div> */}
 
-  </center>
+      </center>
+    </ToDoItemsContext.Provider >
+  )
 }
 
 export default App

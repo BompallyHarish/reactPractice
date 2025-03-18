@@ -1,8 +1,10 @@
+import { useContext } from "react";
 import { MdDelete } from "react-icons/md";
+import { ToDoItemsContext } from "../stores/ToDoItemsStore";
 
 
-function ItemsList({ toDoItems, onDeleteItem }) {
-
+function ItemsList() {
+    const { toDoItems, deleteItem } = useContext(ToDoItemsContext)
     return (
         <div className="container items-container">
             <ul>
@@ -17,7 +19,7 @@ function ItemsList({ toDoItems, onDeleteItem }) {
                         </div>
 
                         <div className="col-2 ">
-                            <button type="button" className="btn btn-danger kg-button" onClick={() => onDeleteItem(item.toDo)}><MdDelete />
+                            <button type="button" className="btn btn-danger kg-button" onClick={() => deleteItem(item.toDo)}><MdDelete />
                             </button>
                         </div>
 
