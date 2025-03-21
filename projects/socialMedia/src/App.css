@@ -28,3 +28,12 @@
   margin-top: 50px;
   margin-left: 10%
 }
+
+.welcomeMessage {
+  margin-left: 35%;
+  margin-top: 10%;
+}
+
+.postsDisplay {
+  display: flex;
+}

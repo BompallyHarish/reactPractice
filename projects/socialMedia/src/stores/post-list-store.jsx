@@ -2,28 +2,30 @@ import { act, createContext, useReducer } from "react"
 
 
 const defaultPosts = [
-    {
-        id: 1,
-        title: "Appraisal",
-        body: "I have to discuss with My manager and get good appraisal for this year",
-        reactions: 4,
-        userId: "1",
-        tags: ["marriage", "event", "celebrations"]
-    },
-    {
-        id: 2,
-        title: "Flat",
-        body: "We should sell our plot to pay some amount for flat",
-        reactions: 6,
-        userId: "2",
-        tags: ["flat", "plot", "appraisal"]
-    }
+    // {
+    //     id: 1,
+    //     title: "Appraisal",
+    //     body: "I have to discuss with My manager and get good appraisal for this year",
+    //     reactions: 4,
+    //     userId: "1",
+    //     tags: ["marriage", "event", "celebrations"]
+    // },
+    // {
+    //     id: 2,
+    //     title: "Flat",
+    //     body: "We should sell our plot to pay some amount for flat",
+    //     reactions: 6,
+    //     userId: "2",
+    //     tags: ["flat", "plot", "appraisal"]
+    // }
 ]
 
 export const PostListContext = createContext({
     postListData: [],
     addPost: () => { },
-    deletePost: () => { }
+    addMultiplePosts: () => { },
+    deletePost: () => { },
+    deleteAllPosts: () => { },
 })
 
 const postListReducer = (currPosts, action) => {
@@ -34,6 +36,14 @@ const postListReducer = (currPosts, action) => {
     } else if (action.type === "CREATE_POST") {
 
         newPosts = [...currPosts, action.payload]
+    }
+    else if (action.type === "ADD_MULTIPLE_POSTS") {
+
+        newPosts = [...currPosts, ...action.payload.posts]
+    }
+    else if (action.type === "DELETE_ALL_POSTS") {
+
+        newPosts = []
     }
     return newPosts
 }
@@ -58,8 +68,22 @@ function PostListProvider({ children }) {
             }
         })
     }
+    const deleteAllPosts = (postId) => {
+        dispatchPost({
+            type: "DELETE_ALL_POSTS",
+        })
+    }
 
-    return <PostListContext.Provider value={{ postListData, addPost, deletePost }}>
+    const addMultiplePosts = (posts) => {
+        dispatchPost({
+            type: "ADD_MULTIPLE_POSTS",
+            payload: {
+                posts
+            }
+        })
+    }
+
+    return <PostListContext.Provider value={{ postListData, addPost, deletePost, addMultiplePosts, deleteAllPosts }}>
         {children}
     </PostListContext.Provider>
 
